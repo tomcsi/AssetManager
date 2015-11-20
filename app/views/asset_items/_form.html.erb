@@ -1,0 +1,24 @@
+  <%= form_for [@asset, @asset_item] do |f| %>
+  <div class="form-group">
+    <%= f.label :incomingdate %>
+    <%= f.date_field :incomingdate, class: "form-control", value: l(@asset_item.incomingdate) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :installdate %>
+    <%= f.date_field :installdate, class: "form-control", value: l(@asset_item.installdate) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :installposition %>
+    <%= f.text_field :installposition, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :installer_id %>
+    <%= f.select :installer_id, Person.all.collect { |p| [p.name, p.id] }, {}, { class: "form-control" } %>
+  </div>
+  <div class="form-group">
+    <%= f.label :identification %>
+    <%= f.text_field :identification, class: "form-control" %>
+  </div>
+  <%= link_to "Back", asset_asset_items_path, class: "btn btn-default" %>
+  <%= f.submit class: "btn btn-success" %>
+  <% end %>

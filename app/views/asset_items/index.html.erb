@@ -1,0 +1,28 @@
+  <h3><%= @asset.name %> items</h3>
+  <%= link_to "New item", new_asset_asset_item_path %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Identification</th>
+        <th>Install date</th>
+        <th>Person</th>
+        <th width="80px"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @asset_items.each do |asset_item| %>
+      <tr>
+      <td><%= asset_item.identification %></td>
+      <td><%= l asset_item.installdate %></td>
+      <td><%= asset_item.installer.name %></td>
+      <td>
+        <%= link_to edit_asset_asset_item_path(@asset.id, asset_item.id) do %>
+        <span class="glyphicon glyphicon-pencil" aria-hidden="true">&nbsp;</span>
+        <% end %>
+        <%= link_to asset_asset_item_path(@asset.id, asset_item.id), method: :delete do %>
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
+        <% end %>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>

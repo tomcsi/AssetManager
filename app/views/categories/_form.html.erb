@@ -1,0 +1,8 @@
+  <%= form_for @category do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <%= link_to "Back", categories_path, class: "btn btn-default" %>
+  <%= f.submit class: "btn btn-success" %>
+  <% end %>

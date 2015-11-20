@@ -1,0 +1,31 @@
+  <h3>Deliveries</h3>
+  <%= link_to "New delivery", new_delivery_path %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Direction</th>
+        <th>QTY</th>
+        <th>Responsible</th>
+        <th width="80px"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @assets.each do |asset| %>
+      <tr>
+      <td><%= link_to asset.name, asset_asset_items_path(asset) %></td>
+      <td><%= asset.category.name %></td>
+      <td><%= asset.items.count.to_s %></td>
+      <td><%= asset.responsible.name %></td>
+      <td>
+        <%= link_to edit_asset_path(asset) do %>
+          <span class="glyphicon glyphicon-pencil" aria-hidden="true">&nbsp;</span>
+        <% end %>
+        <%= link_to asset_path(asset), method: :delete do %>
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        <% end %>
+      </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>

@@ -1,0 +1,24 @@
+  <%= form_for @supplier do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :address %>
+    <%= f.text_field :address, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :phone %>
+    <%= f.text_field :phone, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :contactname %>
+    <%= f.text_field :contactname, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :contactphone %>
+    <%= f.text_field :contactphone, class: "form-control" %>
+  </div>
+  <%= link_to "Back", suppliers_path, class: "btn btn-default" %>
+  <%= f.submit class: "btn btn-success" %>
+  <% end %>

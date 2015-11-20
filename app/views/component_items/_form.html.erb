@@ -1,0 +1,24 @@
+  <%= form_for [@component, @component_item] do |f| %>
+  <div class="form-group">
+    <%= f.label :asset_item_id %>
+    <%= f.select :asset_item_id, AssetItem.all.collect { |a| [a.name, a.id] }, {}, { class: "form-control" } %>
+  </div>
+  <div class="form-group">
+    <%= f.label :incomingdate %>
+    <%= f.date_field :incomingdate, class: "form-control", value: l(@component_item.incomingdate) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :installdate %>
+    <%= f.date_field :installdate, class: "form-control", value: l(@component_item.installdate) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :installer_id %>
+    <%= f.select :installer_id, Person.all.collect { |p| [p.name, p.id] }, {}, { class: "form-control" } %>
+  </div>
+  <div class="form-group">
+    <%= f.label :identification %>
+    <%= f.text_field :identification, class: "form-control" %>
+  </div>
+  <%= link_to "Back", component_component_items_path, class: "btn btn-default" %>
+  <%= f.submit class: "btn btn-success" %>
+  <% end %>
